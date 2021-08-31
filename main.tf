@@ -3,7 +3,7 @@ variable "rest_api_id" {
 }
 
 module "response_default_5xx" {
-  source = "./response_5xx"
+  source = "./modules/gateway_response_5xx"
 
   response_type = "DEFAULT_5XX"
 
@@ -11,7 +11,7 @@ module "response_default_5xx" {
 }
 
 module "response_default_4xx" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "DEFAULT_4XX"
   label         = "Client Error"
@@ -20,7 +20,7 @@ module "response_default_4xx" {
 }
 
 module "response_access_denied" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "ACCESS_DENIED"
   label         = "Access Denied"
@@ -30,7 +30,7 @@ module "response_access_denied" {
 }
 
 module "response_bad_request_parameters" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "BAD_REQUEST_PARAMETERS"
   label         = "Bad Request Parameters"
@@ -39,7 +39,7 @@ module "response_bad_request_parameters" {
 }
 
 module "response_bad_request_body" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "BAD_REQUEST_BODY"
   label         = "Bad Request Body"
@@ -49,7 +49,7 @@ module "response_bad_request_body" {
 }
 
 module "response_expired_token" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "EXPIRED_TOKEN"
   label         = "Expired Token"
@@ -59,7 +59,7 @@ module "response_expired_token" {
 }
 
 module "response_invalid_api_key" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "INVALID_API_KEY"
   label         = "Invalid API key"
@@ -69,7 +69,7 @@ module "response_invalid_api_key" {
 }
 
 module "response_invalid_signature" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "INVALID_SIGNATURE"
   label         = "Invalid Signature"
@@ -79,7 +79,7 @@ module "response_invalid_signature" {
 }
 
 module "response_missing_authentication_token" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "MISSING_AUTHENTICATION_TOKEN"
   label         = "Missing Authentication Token"
@@ -89,7 +89,7 @@ module "response_missing_authentication_token" {
 }
 
 module "response_quota_exceeded" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "QUOTA_EXCEEDED"
   label         = "Quota Exceeded"
@@ -99,7 +99,7 @@ module "response_quota_exceeded" {
 }
 
 module "response_request_too_large" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "REQUEST_TOO_LARGE"
   label         = "Request Too Large"
@@ -109,7 +109,7 @@ module "response_request_too_large" {
 }
 
 module "response_not_found" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "RESOURCE_NOT_FOUND"
   label         = "Not Found"
@@ -119,7 +119,7 @@ module "response_not_found" {
 }
 
 module "response_throttled" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "THROTTLED"
   label         = "Throttled"
@@ -129,7 +129,7 @@ module "response_throttled" {
 }
 
 module "response_unauthorized" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "UNAUTHORIZED"
   label         = "Unauthorized"
@@ -139,7 +139,7 @@ module "response_unauthorized" {
 }
 
 module "response_unsupported_media_type" {
-  source = "./response_4xx"
+  source = "./modules/gateway_response_4xx"
 
   response_type = "UNSUPPORTED_MEDIA_TYPE"
   label         = "Unsupported Media Type"
