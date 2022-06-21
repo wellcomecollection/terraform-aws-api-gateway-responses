@@ -13,7 +13,7 @@ locals {
 {
 "errorType":"http",
 "httpStatus":${var.status_code},
-"label":"${var.label}",
+"label":"Internal Server Error",
 "type":"Error"
 }
 EOF
