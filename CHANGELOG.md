@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.1.3 - 2022-06-21
+
+Fix a bug with 5xx responses in v1.1.2.
+
 ## v1.1.2 - 2022-06-21
 
 This removes the deprecated `template` provider in favour of built-in functions.
