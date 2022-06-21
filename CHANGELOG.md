@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.1.2 - 2022-06-21
+
+This removes the deprecated `template` provider in favour of built-in functions.
+It also returns the httpStatus in error responses as a number, not a string.
+
 ## v1.1.1 - 2021-08-31
 
 Fix some broken references.
