@@ -17,17 +17,16 @@ variable "status_code" {
 variable "label" {
 }
 
-data "template_file" "error" {
-  template = <<EOF
+locals {
+  error_template = <<EOF
 {
 "errorType":"http",
-"httpStatus":"${var.status_code}",
+"httpStatus":${var.status_code},
 "label":"${var.label}",
 "description":$context.error.messageString,
 "type":"Error"
 }
 EOF
-
 }
 
 resource "aws_api_gateway_integration_response" "response" {
@@ -37,7 +36,7 @@ resource "aws_api_gateway_integration_response" "response" {
   status_code = var.status_code
 
   response_templates = {
-    "application/json" = replace(data.template_file.error.rendered, "\n", "")
+    "application/json" = replace(local.error_template, "\n", "")
   }
 }
 
