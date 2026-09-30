@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.2.0 - 2026-09-30
+
+`MISSING_AUTHENTICATION_TOKEN` and `RESOURCE_NOT_FOUND` now return 404 "Page not found for URL $context.path", and `RESOURCE_NOT_FOUND` is included in the fingerprint so changes to it trigger a redeploy.
+
 ## v1.1.3 - 2022-06-21
 
 Fix a bug with 5xx responses in v1.1.2.
