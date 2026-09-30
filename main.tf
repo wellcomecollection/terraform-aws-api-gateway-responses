@@ -2,6 +2,11 @@ variable "rest_api_id" {
   type = string
 }
 
+locals {
+  // Without IAM auth, API Gateway sends MISSING_AUTHENTICATION_TOKEN for unknown paths
+  not_found_description = "Page not found for URL $context.path"
+}
+
 module "response_default_5xx" {
   source = "./modules/gateway_response_5xx"
 
@@ -82,8 +87,9 @@ module "response_missing_authentication_token" {
   source = "./modules/gateway_response_4xx"
 
   response_type = "MISSING_AUTHENTICATION_TOKEN"
-  label         = "Missing Authentication Token"
-  status_code   = 403
+  label         = "Not Found"
+  status_code   = 404
+  description   = local.not_found_description
 
   rest_api_id = var.rest_api_id
 }
@@ -114,6 +120,7 @@ module "response_not_found" {
   response_type = "RESOURCE_NOT_FOUND"
   label         = "Not Found"
   status_code   = 404
+  description   = local.not_found_description
 
   rest_api_id = var.rest_api_id
 }
@@ -159,6 +166,7 @@ locals {
     module.response_invalid_api_key.api_deployment_component_fingerprint,
     module.response_invalid_signature.api_deployment_component_fingerprint,
     module.response_missing_authentication_token.api_deployment_component_fingerprint,
+    module.response_not_found.api_deployment_component_fingerprint,
     module.response_quota_exceeded.api_deployment_component_fingerprint,
     module.response_request_too_large.api_deployment_component_fingerprint,
     module.response_unauthorized.api_deployment_component_fingerprint,

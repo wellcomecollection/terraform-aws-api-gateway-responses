@@ -11,13 +11,21 @@ variable "status_code" {
 variable "label" {
 }
 
+variable "description" {
+  type    = string
+  default = null
+}
+
 locals {
+  // messageString is already a quoted JSON string; a custom description is not
+  description = var.description == null ? "$context.error.messageString" : jsonencode(var.description)
+
   error_template = <<EOF
 {
 "errorType":"http",
 "httpStatus":${var.status_code},
 "label":"${var.label}",
-"description":$context.error.messageString,
+"description":${local.description},
 "type":"Error"
 }
 EOF
